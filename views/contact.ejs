@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</head>
+<body>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="/">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#">Contact</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="/user">Utilisateurs</a>
+		</li>
+	</ul>
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-sm-8 offset-sm-2">
+				<h1>Contact</h1>
+				<form class="form-group" action="/contact" method="post">
+					Email   : <input type="text" name="email" class="form-control"><br>
+					Message : <textarea name="content" class="form-control"></textarea><br>
+					<input type="submit" name="Envoyer" class="btn btn-primary">
+				</form>
+				<% if(messages != undefined){ %>
+					<hr style="background-color:white !important;">
+					<p><strong>MAIL    : </strong><i><%= messages.email %></i></p>
+					<strong>MESSAGE : </strong><p><%= messages.content %></p>
+					<hr style="background-color:white !important;">
+				<% } %>
+
+		<!-- ALETERNATIVE POUR STOCKER LES MESSAGES EN SESSION (cookie) 
+				<%# if(messages != undefined){ %>
+					<%# messages.forEach(function(text, key){ %>
+						<p>MAIL    : <strong><i><%#= text.email %></i></strong></p>
+						<p>MESSAGE : <%#= text.content %></p>
+					<%# }); %>
+				<%# } %>
+		-->
+			</div>
+		</div>
+	</div>
+	<footer>
+		<br>
+		<p>Designed By <i>©Loïc BURNOTTE</i>.</p>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+</body>
+</html>
